@@ -30,6 +30,11 @@ class NumberRollingLabel: UILabel {
     
     @objc fileprivate func updateValue(timer: Timer) {
         let now: TimeInterval = Date.timeIntervalSinceReferenceDate
+        var testValue: TimeInterval {
+            now - lastUpdateTime
+        }
+        print("testValue == \(testValue)")
+        
         progress += now - lastUpdateTime
         lastUpdateTime = now
         
@@ -38,18 +43,18 @@ class NumberRollingLabel: UILabel {
             self.timer = nil
             progress = totalTime
             
-            print("invalidate()")
         }
         //print("currentValue == \(currentValue)")
-        //print("progress == \(progress)") //秒數
-        print("startingValue == \(startingValue))")
+//        print("progress == \(progress)") //秒數
+//        print("now           == \(now)")
+//        print("lastUpdateTime = \(lastUpdateTime)")
+//        print("startingValue == \(startingValue))")
         
         setTextValue(value: currentValue)
     }
     
     fileprivate func setTextValue(value: Float) {
         text = String(format: "%.0f", value)
-        print("setTextValue")
     }
 
 }
@@ -68,9 +73,7 @@ extension NumberRollingLabel {
         progress = 0.0
         totalTime = duration ?? animationDuration
         lastUpdateTime = Date.timeIntervalSinceReferenceDate
-        //print("totalTime == \(totalTime)")
-       // print("animationDuration == \(animationDuration)")
-        
+
         addDisplayLink()
     }
     

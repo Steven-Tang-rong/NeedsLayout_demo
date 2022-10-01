@@ -18,9 +18,6 @@ struct SwiftUIPreview: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = ViewController
     
-//    var body: some View {
-//        Text("Hello, World!")
-//    }
 }
 
 struct SwiftUIPreview_Previews: PreviewProvider {

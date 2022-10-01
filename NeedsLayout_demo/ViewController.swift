@@ -10,8 +10,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var violetView: UIView!
+    
     @IBOutlet weak var valueLabel: NumberRollingLabel!
     
     @IBAction func modifyHeightAction(_ sender: Any) {
@@ -25,8 +25,6 @@ class ViewController: UIViewController {
     }
 
     func animate() {
-        view.layoutIfNeeded()
-        
         
         if viewHeight.constant == 50.0 {
             viewHeight.constant = violetView.frame.height + 200
